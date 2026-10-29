@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#fff0f5" />
+  <meta name="description" content="Một món quà sinh nhật nhỏ xíu dành cho Anh Mthw, từ Hăn ♡" />
+  <title>Happy Birthday, Anh Mthw! ♡</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pink: #ff8fb1;
+      --pink-dark: #ec6391;
+      --pink-light: #fff0f5;
+      --cream: #fffaf1;
+      --lavender: #e9e2ff;
+      --ink: #554454;
+      --muted: #8d788c;
+      --white: #fffdfd;
+      --shadow: 0 18px 55px rgba(211, 115, 153, .18);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: 'Nunito', sans-serif;
+      background:
+        radial-gradient(circle at 10% 12%, rgba(255, 188, 210, .45), transparent 24rem),
+        radial-gradient(circle at 90% 30%, rgba(219, 209, 255, .55), transparent 25rem),
+        linear-gradient(150deg, #fff8fa 0%, #fffaf1 48%, #f7f3ff 100%);
+      overflow-x: hidden;
+    }
+    button { font: inherit; }
+    .sparkle-bg, #effects { position: fixed; inset: 0; pointer-events: none; overflow: hidden; }
+    .sparkle-bg { z-index: 0; }
+    #effects { z-index: 10; }
+    .floaty {
+      position: absolute;
+      opacity: .58;
+      animation: drift linear infinite;
+      user-select: none;
+    }
+    @keyframes drift {
+      from { transform: translateY(110vh) rotate(0deg); }
+      to { transform: translateY(-15vh) rotate(28deg); }
+    }
+    .topbar {
+      position: relative; z-index: 2;
+      display: flex; justify-content: space-between; align-items: center;
+      width: min(1080px, 92%); margin: 0 auto; padding: 22px 0;
+    }
+    .brand { font-family: 'Baloo 2', cursive; font-weight: 800; color: var(--pink-dark); font-size: 1.2rem; }
+    .music-btn {
+      border: 1px solid #f6c5d6; background: rgba(255,255,255,.75);
+      color: var(--pink-dark); border-radius: 999px; padding: 10px 15px;
+      cursor: pointer; box-shadow: 0 5px 18px rgba(211,115,153,.12);
+      transition: transform .2s, background .2s;
+    }
+    .music-btn:hover { transform: translateY(-2px); background: white; }
+    main { position: relative; z-index: 1; width: min(900px, 92%); margin: 0 auto; padding-bottom: 60px; }
+    .hero { text-align: center; padding: clamp(28px, 7vw, 76px) 0 42px; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.76); border: 1px solid #ffe0ea;
+      border-radius: 999px; padding: 8px 14px; color: var(--pink-dark);
+      font-size: .88rem; font-weight: 900; letter-spacing: .04em;
+    }
+    h1 {
+      font-family: 'Baloo 2', cursive; font-size: clamp(2.8rem, 10vw, 6rem);
+      line-height: .98; margin: 24px 0 12px; color: #e96998; letter-spacing: -.04em;
+      text-shadow: 0 5px 0 #ffe0eb;
+    }
+    .hero-sub { font-size: clamp(1rem, 3vw, 1.22rem); color: var(--muted); margin: 0 auto; max-width: 560px; line-height: 1.8; }
+    .cake-stage { position: relative; width: 210px; height: 190px; margin: 25px auto 10px; }
+    .cake { position: absolute; left: 50%; bottom: 10px; transform: translateX(-50%); width: 150px; height: 86px; background: #ffb6ca; border-radius: 18px 18px 22px 22px; box-shadow: inset 0 -10px rgba(235, 111, 155, .15), 0 12px 22px rgba(216, 124, 159, .15); }
+    .cake:before { content: ''; position: absolute; left: -4px; top: 0; width: 158px; height: 30px; background: #fff4f7; border-radius: 50%; border-bottom: 5px dotted #ff9ab9; }
+    .cake:after { content: '♡  ♡  ♡'; position: absolute; top: 38px; width: 100%; text-align: center; color: #fff4f7; font-size: 17px; letter-spacing: 5px; }
+    .plate { position: absolute; width: 190px; height: 17px; background: #fff; border: 3px solid #f7d9e4; border-radius: 50%; bottom: 2px; left: 10px; }
+    .candle { position: absolute; width: 12px; height: 44px; border-radius: 5px; background: repeating-linear-gradient(135deg, #fff 0 6px, #c4b4ff 6px 12px); bottom: 95px; left: 99px; }
+    .flame { position: absolute; width: 18px; height: 25px; border-radius: 60% 40% 60% 40%; background: #ffc857; bottom: 137px; left: 96px; transform: rotate(8deg); box-shadow: 0 0 22px #ffd56b; animation: flicker .7s infinite alternate; }
+    @keyframes flicker { to { transform: rotate(-8deg) scale(.88); } }
+    .tiny-heart { position: absolute; color: #ec6391; font-size: 24px; animation: bob 2s ease-in-out infinite; }
+    .tiny-heart.one { left: 7px; top: 45px; } .tiny-heart.two { right: 4px; top: 68px; animation-delay: .6s; }
+    @keyframes bob { 50% { transform: translateY(-10px) rotate(8deg); } }
+    .primary-btn, .secondary-btn {
+      display: inline-flex; justify-content: center; align-items: center; gap: 9px;
+      border: 0; border-radius: 999px; padding: 14px 23px; font-weight: 900;
+      cursor: pointer; transition: transform .2s, box-shadow .2s;
+    }
+    .primary-btn { color: white; background: linear-gradient(135deg, #ff8fb1, #ec6391); box-shadow: 0 10px 22px rgba(236,99,145,.28); }
+    .secondary-btn { color: var(--pink-dark); background: #fff; border: 1px solid #f8ccdc; }
+    .primary-btn:hover, .secondary-btn:hover { transform: translateY(-3px); }
+    .hint { font-size: .82rem; color: #a38e9f; margin-top: 13px; }
+    .letter-wrap { display: none; animation: rise .7s ease both; }
+    .letter-wrap.show { display: block; }
+    @keyframes rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+    .letter-card {
+      background: rgba(255,255,255,.86); border: 1px solid rgba(255,210,225,.9);
+      border-radius: 28px; padding: clamp(22px, 6vw, 48px); box-shadow: var(--shadow);
+      position: relative; overflow: hidden;
+    }
+    .letter-card:before { content: '✿'; position: absolute; right: 18px; top: 4px; font-size: 5rem; color: #ffe2ec; transform: rotate(18deg); }
+    .letter-kicker { color: var(--pink-dark); font-weight: 900; font-size: .82rem; text-transform: uppercase; letter-spacing: .12em; }
+    h2 { font-family: 'Baloo 2', cursive; font-size: clamp(1.8rem, 6vw, 2.6rem); line-height: 1.15; margin: 10px 0 22px; color: #d95d8b; }
+    .message-part { position: relative; z-index: 1; font-size: clamp(1rem, 2.7vw, 1.1rem); line-height: 1.95; white-space: pre-line; }
+    .message-part p { margin: 0 0 20px; }
+    .message-part .signature { color: #d95d8b; font-family: 'Baloo 2', cursive; font-size: 1.45rem; font-weight: 800; margin-top: 24px; }
+    .step-controls { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 26px; }
+    .step-count { color: #ad8da0; font-size: .9rem; font-weight: 800; }
+    .progress { height: 6px; background: #ffe7ef; border-radius: 99px; margin-top: 19px; overflow: hidden; }
+    .progress > div { height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, #ffb4cb, #b9a5ff); transition: width .35s; }
+    .final-note { display: none; margin-top: 24px; padding: 20px; text-align: center; background: #fff4f8; border-radius: 20px; color: #d95d8b; font-weight: 900; }
+    .final-note.show { display: block; animation: rise .5s ease both; }
+    footer { text-align: center; padding: 38px 12px 10px; color: #a58d9f; font-size: .9rem; line-height: 1.8; }
+    .footer-heart { color: #ed7fa4; }
+    .toast { position: fixed; z-index: 20; left: 50%; bottom: 22px; transform: translate(-50%, 20px); opacity: 0; pointer-events: none; background: #fff; color: #d95d8b; border: 1px solid #ffd8e5; box-shadow: var(--shadow); padding: 12px 18px; border-radius: 999px; font-weight: 800; transition: .3s; width: max-content; max-width: 90%; text-align: center; }
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
+    @media (max-width: 520px) {
+      .topbar { padding: 16px 0; }
+      .brand { font-size: 1rem; }
+      .music-btn { padding: 9px 12px; font-size: .82rem; }
+      .hero { padding-top: 35px; }
+      .cake-stage { transform: scale(.9); margin-top: 12px; margin-bottom: 0; }
+      .letter-card { border-radius: 23px; }
+      .step-controls { flex-wrap: wrap; }
+      .step-controls button { padding: 12px 16px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *:before, *:after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sparkle-bg" id="floatingDecor" aria-hidden="true"></div>
+  <canvas id="effects" aria-hidden="true"></canvas>
+
+  <header class="topbar">
+    <div class="brand">♡ a little birthday surprise</div>
+    <button class="music-btn" id="musicToggle" type="button" aria-pressed="false">♫ Bật nhạc</button>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="eyebrow">🎀 TODAY IS YOUR DAY 🎀</div>
+      <h1>Happy Birthday,<br>Anh Mthw!</h1>
+      <p class="hero-sub">Một chiếc web bé xíu, một lời chúc thật lòng<br>và một người bạn luôn mong anh vui vẻ. ♡</p>
+      <div class="cake-stage" aria-label="Bánh sinh nhật minh họa">
+        <span class="tiny-heart one">♡</span><span class="tiny-heart two">♥</span>
+        <div class="flame"></div><div class="candle"></div><div class="cake"></div><div class="plate"></div>
+      </div>
+      <button class="primary-btn" id="openLetter" type="button">Mở món quà nho nhỏ <span>♡</span></button>
+      <div class="hint">Psst… có vài điều Hăn muốn nói với anh đó 👀</div>
+    </section>
+
+    <section class="letter-wrap" id="letter" aria-live="polite">
+      <article class="letter-card">
+        <div class="letter-kicker">a letter for you ✉️</div>
+        <h2 id="sectionTitle">Hello anh Mthw,</h2>
+        <div class="message-part" id="messagePart"></div>
+        <div class="progress" aria-label="Tiến trình lời chúc"><div id="progressBar"></div></div>
+        <div class="step-controls">
+          <button class="secondary-btn" id="prevBtn" type="button">← Đọc lại</button>
+          <span class="step-count" id="stepCount">01 / 04</span>
+          <button class="primary-btn" id="nextBtn" type="button">Tiếp nè ♡ →</button>
+        </div>
+        <div class="final-note" id="finalNote">Chúc mừng sinh nhật anh Mthw! 🎂✨<br>Grow, glow & enjoy your own journey nhaaa. <span>♡</span></div>
+      </article>
+    </section>
+
+    <footer>
+      Made with a little bit of love and lots of good wishes<br>
+      from <strong>Hăn</strong> <span class="footer-heart">♥</span>
+    </footer>
+  </main>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script>
+    // Lời chúc được chia thành từng phần để người nhận đọc lần lượt.
+    const pages = [
+      {
+        title: "Hello anh Mthw,",
+        text: `Năm nay có vẻ là năm có thể nói là cuối cùng của đời sinh viên (trừ khi học ths :,)) nhưng mà hiện tại thì mình cũng không còn học trên trường nhiều nên cũng hầu như không gặp nhau luôn.\n\nNhưng mà cũng update cuộc sống nhau sơ sơ qua Locket, TikTok nè. Thấy anh vẫn vui vẻ, vẫn có nhiều hành trình, hướng đi mới, em cũng vui lắm 🫰🏻`
+      },
+      {
+        title: "It's your special day! 🎂",
+        text: `Nhưng mà hôm nay là ngày mà anh sinh ra nên đặc biệt hơn bao giờ hết.\n\nAnh nhớ update Locket, Insta nhìu vô để em coi với nháaa. Cùng nhau enjoy ngày, tuần, tháng sinh nhật ✨✨`
+      },
+      {
+        title: "Keep growing & glowing ✨",
+        text: `Em chúc anh mỗi ngày trôi qua anh sẽ grow up thêm nhìu nhìu nhìu nhìu nữa.\n\nCàng toả sáng, rực rỡ hơn và mong là anh sẽ tìm được thứ mà mình thật sự yêu thích để đồng hành lâu dài 🫂`
+      },
+      {
+        title: "One last thing… ♡",
+        text: `Mong tuổi mới sẽ mang đến cho anh thật nhiều niềm vui, những trải nghiệm đáng nhớ và những người luôn thương quý anh.\n\nCứ tận hưởng hành trình của mình theo cách anh muốn nha. Em vẫn sẽ hóng những update cuộc sống của anh đóoo.`
+      }
+    ];
+
+    const letter = document.getElementById('letter');
+    const openBtn = document.getElementById('openLetter');
+    const titleEl = document.getElementById('sectionTitle');
+    const messageEl = document.getElementById('messagePart');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const stepCount = document.getElementById('stepCount');
+    const progressBar = document.getElementById('progressBar');
+    const finalNote = document.getElementById('finalNote');
+    const toast = document.getElementById('toast');
+    let currentPage = 0;
+    let toastTimer;
+
+    function renderPage(index) {
+      currentPage = Math.max(0, Math.min(index, pages.length - 1));
+      titleEl.textContent = pages[currentPage].title;
+      messageEl.innerHTML = '';
+      pages[currentPage].text.split('\n\n').forEach(paragraph => {
+        const p = document.createElement('p');
+        p.textContent = paragraph;
+        messageEl.appendChild(p);
+      });
+      if (currentPage === pages.length - 1) {
+        const sign = document.createElement('p');
+        sign.className = 'signature';
+        sign.textContent = 'Iu lắm đóo — Hăn ♥';
+        messageEl.appendChild(sign);
+      }
+      stepCount.textContent = `${String(currentPage + 1).padStart(2, '0')} / ${String(pages.length).padStart(2, '0')}`;
+      progressBar.style.width = `${((currentPage + 1) / pages.length) * 100}%`;
+      prevBtn.disabled = currentPage === 0;
+      prevBtn.style.opacity = currentPage === 0 ? '.45' : '1';
+      nextBtn.textContent = currentPage === pages.length - 1 ? 'Đọc lại từ đầu ↺' : 'Tiếp nè ♡ →';
+      finalNote.classList.toggle('show', currentPage === pages.length - 1);
+      if (currentPage === pages.length - 1) burstConfetti();
+    }
+
+    openBtn.addEventListener('click', () => {
+      letter.classList.add('show');
+      renderPage(0);
+      openBtn.textContent = 'Món quà đã mở rồi ♡';
+      openBtn.disabled = true;
+      openBtn.style.opacity = '.7';
+      setTimeout(() => letter.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
+      burstConfetti();
+      showToast('Một chiếc thư dành riêng cho anh Mthw 💌');
+    });
+    prevBtn.addEventListener('click', () => {
+      if (currentPage > 0) renderPage(currentPage - 1);
+      letter.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+    nextBtn.addEventListener('click', () => {
+      if (currentPage === pages.length - 1) {
+        renderPage(0);
+        showToast('Đọc lại lời chúc từ đầu nè ♡');
+      } else {
+        renderPage(currentPage + 1);
+      }
+      letter.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
+    function showToast(text) {
+      toast.textContent = text;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 2600);
+    }
+
+    // Các hình trang trí bay nhẹ ở nền.
+    const decor = document.getElementById('floatingDecor');
+    const decorations = ['♡', '✦', '✿', '♥', '✧', '୨୧'];
+    for (let i = 0; i < 20; i++) {
+      const el = document.createElement('span');
+      el.className = 'floaty';
+      el.textContent = decorations[Math.floor(Math.random() * decorations.length)];
+      el.style.left = `${Math.random() * 100}%`;
+      el.style.fontSize = `${12 + Math.random() * 18}px`;
+      el.style.animationDuration = `${13 + Math.random() * 18}s`;
+      el.style.animationDelay = `${-Math.random() * 25}s`;
+      el.style.color = ['#f3a0bf', '#c3b2ff', '#ffcf8d'][i % 3];
+      decor.appendChild(el);
+    }
+
+    // Pháo hoa / trái tim bằng canvas, không cần thư viện ngoài.
+    const canvas = document.getElementById('effects');
+    const ctx = canvas.getContext('2d');
+    let W, H, particles = [], raf;
+    function resizeCanvas() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = window.innerWidth; H = window.innerHeight;
+      canvas.width = W * dpr; canvas.height = H * dpr;
+      canvas.style.width = `${W}px`; canvas.style.height = `${H}px`;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    function burstConfetti() {
+      const x = W * (0.2 + Math.random() * 0.6);
+      const y = H * (0.18 + Math.random() * 0.28);
+      const colors = ['#ff8fb1', '#ffc857', '#b9a5ff', '#ffb4cb', '#9edecb', '#ffffff'];
+      for (let i = 0; i < 65; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const speed = 1.2 + Math.random() * 4.4;
+        particles.push({
+          x, y, vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed - 1.3,
+          life: 55 + Math.random() * 35, maxLife: 90, size: 2 + Math.random() * 4,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          heart: Math.random() > .55
+        });
+      }
+      if (!raf) animate();
+    }
+    function drawHeart(x, y, size, color, alpha) {
+      ctx.save(); ctx.translate(x, y); ctx.scale(size / 18, size / 18);
+      ctx.globalAlpha = alpha; ctx.fillStyle = color;
+      ctx.beginPath(); ctx.moveTo(0, 6);
+      ctx.bezierCurveTo(-18, -5, -9, -15, 0, -7);
+      ctx.bezierCurveTo(9, -15, 18, -5, 0, 6);
+      ctx.fill(); ctx.restore();
+    }
+    function animate() {
+      ctx.clearRect(0, 0, W, H);
+      particles = particles.filter(p => p.life > 0);
+      particles.forEach(p => {
+        p.x += p.vx; p.y += p.vy; p.vy += .035; p.vx *= .99; p.life--;
+        const alpha = Math.max(0, p.life / p.maxLife);
+        if (p.heart) drawHeart(p.x, p.y, p.size * 2.4, p.color, alpha);
+        else {
+          ctx.globalAlpha = alpha; ctx.fillStyle = p.color;
+          ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fill();
+        }
+      });
+      ctx.globalAlpha = 1;
+      if (particles.length) raf = requestAnimationFrame(animate);
+      else { cancelAnimationFrame(raf); raf = null; ctx.clearRect(0, 0, W, H); }
+    }
+    // Nhấp vào nền để thả một ít trái tim.
+    document.addEventListener('click', e => {
+      if (e.target.closest('button')) return;
+      const colors = ['#ff8fb1', '#c3b2ff', '#ffc857'];
+      for (let i = 0; i < 10; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const speed = 1 + Math.random() * 2.5;
+        particles.push({
+          x: e.clientX, y: e.clientY, vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed - 1, life: 40 + Math.random() * 25,
+          maxLife: 65, size: 3 + Math.random() * 4,
+          color: colors[Math.floor(Math.random() * colors.length)], heart: true
+        });
+      }
+      if (!raf) animate();
+    });
+
+    // Nhạc nền dùng Web Audio API để tránh phụ thuộc file nhạc có bản quyền.
+    // Trình duyệt chỉ cho phát sau khi người dùng chạm nút.
+    let audioCtx = null, masterGain = null, musicTimer = null, noteIndex = 0, musicOn = false;
+    const melody = [523.25, 659.25, 783.99, 659.25, 587.33, 698.46, 880, 698.46,
+                    523.25, 659.25, 783.99, 1046.5, 880, 783.99, 659.25, 587.33];
+    function playNote(freq, duration = .32) {
+      if (!audioCtx || !masterGain) return;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sine'; osc.frequency.value = freq;
+      const now = audioCtx.currentTime;
+      gain.gain.setValueAtTime(.0001, now);
+      gain.gain.exponentialRampToValueAtTime(.075, now + .025);
+      gain.gain.exponentialRampToValueAtTime(.0001, now + duration);
+      osc.connect(gain); gain.connect(masterGain);
+      osc.start(now); osc.stop(now + duration + .03);
+    }
+    async function startMusic() {
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContextClass) { showToast('Trình duyệt này chưa hỗ trợ phát nhạc 😿'); return; }
+      if (!audioCtx) {
+        audioCtx = new AudioContextClass();
+        masterGain = audioCtx.createGain();
+        masterGain.gain.value = .45;
+        masterGain.connect(audioCtx.destination);
+      }
+      await audioCtx.resume();
+      musicOn = true;
+      document.getElementById('musicToggle').textContent = '♫ Tắt nhạc';
+      document.getElementById('musicToggle').setAttribute('aria-pressed', 'true');
+      playNote(melody[noteIndex % melody.length]);
+      noteIndex++;
+      musicTimer = setInterval(() => {
+        if (!musicOn) return;
+        playNote(melody[noteIndex % melody.length], .38);
+        if (noteIndex % 4 === 0) playNote(melody[(noteIndex + 2) % melody.length] / 2, .5);
+        noteIndex++;
+      }, 420);
+      showToast('Một chút giai điệu dành cho ngày đặc biệt 🎶');
+    }
+    function stopMusic() {
+      musicOn = false;
+      clearInterval(musicTimer);
+      if (masterGain && audioCtx) {
+        masterGain.gain.setTargetAtTime(.0001, audioCtx.currentTime, .08);
+      }
+      document.getElementById('musicToggle').textContent = '♫ Bật nhạc';
+      document.getElementById('musicToggle').setAttribute('aria-pressed', 'false');
+    }
+    document.getElementById('musicToggle').addEventListener('click', async () => {
+      if (!musicOn) {
+        if (masterGain && audioCtx) masterGain.gain.setTargetAtTime(.45, audioCtx.currentTime, .08);
+        await startMusic();
+      } else stopMusic();
+    });
+  </script>
+</body>
+</html>
